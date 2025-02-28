@@ -138,3 +138,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+// Script para o menu mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links-container');
+
+    menuToggle.addEventListener('click', function() {
+        navLinksContainer.classList.toggle('active');
+    });
+});
