@@ -627,3 +627,207 @@ body.dark-theme .hero-btn:hover {
 .logo:hover .letter:nth-child(4) { animation-delay: 0.3s; }
 .logo:hover .letter:nth-child(5) { animation-delay: 0.4s; }
 .logo:hover .letter:nth-child(6) { animation-delay: 0.5s; }
+
+/* Ajustes para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o ícone do menu */
+    }
+
+    .nav-links-container {
+        display: none; /* Oculta os links de navegação */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links-container.active {
+        display: block; /* Exibe os links quando o menu está ativo */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    /* Página Inicial */
+    .function {
+        padding: 80px 20px;
+    }
+
+    .image-matteo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    /* Seções */
+    .section {
+        padding: 40px 10%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* Sobre Mim */
+    .content {
+        font-size: 1rem;
+    }
+
+    /* Habilidades */
+    .skills-list li {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    /* Projetos */
+    .project-item {
+        padding: 15px;
+    }
+
+    .project-item h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-item p {
+        font-size: 0.9rem;
+    }
+
+    .project-item a {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    /* Contato */
+    .contact-description {
+        font-size: 1rem;
+    }
+
+    .contact-link {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .contact-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Ajustes para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    /* Navbar */
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    /* Página Inicial */
+    .function {
+        padding: 60px 15px;
+    }
+
+    .image-matteo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    /* Seções */
+    .section {
+        padding: 30px 5%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Sobre Mim */
+    .content {
+        font-size: 0.9rem;
+    }
+
+    /* Habilidades */
+    .skills-list li {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Projetos */
+    .project-item {
+        padding: 10px;
+    }
+
+    .project-item h2 {
+        font-size: 1.3rem;
+    }
+
+    .project-item p {
+        font-size: 0.8rem;
+    }
+
+    .project-item a {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    /* Contato */
+    .contact-description {
+        font-size: 0.9rem;
+    }
+
+    .contact-link {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
