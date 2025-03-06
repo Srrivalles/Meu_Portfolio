@@ -147,3 +147,17 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinksContainer.classList.toggle('active');
     });
 });
+
+document.querySelector('.image-container').addEventListener('mousemove', (e) => {
+    const rect = e.target.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Coordenada X dentro do elemento
+    const y = e.clientY - rect.top;  // Coordenada Y dentro do elemento
+
+    const frameOverlay = e.target.querySelector('.frame-overlay');
+    frameOverlay.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.5))`;
+});
+
+document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
+    const frameOverlay = e.target.querySelector('.frame-overlay');
+    frameOverlay.style.background = 'rgba(0, 0, 0, 0.5)';
+});
