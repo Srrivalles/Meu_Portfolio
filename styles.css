@@ -7,7 +7,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+/*Corpo*/
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #ebebeb, #3b2d7e);
@@ -28,7 +28,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.3s;
+    transition: background 0.6s;
 }
 
 /* Logo */
@@ -144,6 +144,8 @@ input:checked + .slider:before {
     transform: translateX(20px);
 }
 
+/* Fim botão de troca de tema */
+
 /* Responsividade */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -202,11 +204,11 @@ input:checked + .slider:before {
     height: 360px;
     object-fit: cover; /* Melhor que "fill" para manter a proporção */
     border-radius: 50%; /* Deixa a imagem redonda */
-    border: 6px solid #22393b; /* Borda laranja */
-    box-shadow: 0 0 30px rgba(57, 73, 89, 0.6), /* Sombra externa */
-                0 0 60px rgba(47, 79, 160, 0.4), /* Sombra mais difusa */
+    border: 6px solid #593d7f; /* Borda laranja */
+    box-shadow: 0 0 30px rgba(58, 98, 139, 0.6), /* Sombra externa */
+                0 0 60px rgba(70, 41, 137, 0.4), /* Sombra mais difusa */
                 0 0 90px rgba(243, 156, 18, 0.2); /* Sombra mais leve */
-    transition: transform 0.6s, box-shadow 0.6s;
+    transition: transform 1.0s, box-shadow 1.6s;
     position: relative;
     z-index: 1;
 }
@@ -227,7 +229,7 @@ input:checked + .slider:before {
     height: 420px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(243, 156, 18, 0.4), transparent 70%);
-    animation: pulse 3s infinite ease-in-out;
+    animation: pulse 10s infinite ease-in-out;
     z-index: 0;
 }
 
@@ -246,6 +248,7 @@ input:checked + .slider:before {
         opacity: 0.6;
     }
 }
+/* Fim animação de pulsação */
 
 /* Título e subtítulo */
 .hero-title {
@@ -325,7 +328,7 @@ h1 {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: white; /* Alterado para branco para melhor contraste */
+    color: white;
 }
 
 /* Sobre Mim */
@@ -334,8 +337,9 @@ h1 {
     margin: auto;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: white; /* Alterado para branco para melhor contraste */
+    color: white;
 }
+/* Fim sobre Mim */
 
 /* Habilidades */
 .skills-container {
@@ -370,6 +374,7 @@ h1 {
 .skills-list li:hover {
     transform: translateY(-5px);
 }
+/* Fim habilidades */
 
 /* Projetos */
 .project-item {
@@ -413,6 +418,7 @@ h1 {
 .project-item a:hover {
     background: #e67e22;
 }
+/* Fim projetos */
 
 /* Contato */
 .contact-container {
@@ -511,6 +517,8 @@ h1 {
     }
 }
 
+/* Fim contato */
+
 /* Modo Escuro */
 body.dark-theme {
     background: linear-gradient(to right, #0a0a0a, #2c2c2c);
@@ -543,6 +551,8 @@ body.dark-theme .hero-btn:hover {
     background: #e67e22;
 }
 
+/* Fim m
+odo Escuro */
 /* Estilo do botão de preview */
 .preview-button {
     padding: 8px 16px; /* Reduzi o padding para diminuir o tamanho da borda */
@@ -558,6 +568,7 @@ body.dark-theme .hero-btn:hover {
 .preview-button:hover {
     background: #e67e22;
 }
+/* Fim estilo do botão de preview */
 
 /* Estilo do contêiner do vídeo */
 .video-container {
@@ -574,6 +585,7 @@ body.dark-theme .hero-btn:hover {
     height: auto;
     display: block;
 }
+/* Fim estilo do contêiner do vídeo */
 
 /* Estilo do botão de fechar */
 .close-button {
@@ -591,24 +603,27 @@ body.dark-theme .hero-btn:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s;
+    transition: background 0.2s;
 }
 
 .close-button:hover {
     background: rgba(0, 0, 0, 0.9);
 }
+/* Fim estilo do botão de fechar */
 
 /* Estilo das letras do nome */
 .logo .letter {
     display: inline-block;
     transition: transform 0.3s ease, color 0.3s ease;
 }
+/* Fim estilo das letras do nome */
 
 /* Efeito de hover nas letras */
 .logo:hover .letter {
     animation: bounce 0.5s ease;
     color: #f39c12; /* Cor laranja ao passar o mouse */
 }
+/* Fim efeito de hover nas letras */
 
 /* Animação de "bounce" (saltar) */
 @keyframes bounce {
@@ -621,14 +636,16 @@ body.dark-theme .hero-btn:hover {
 }
 
 /* Adicionando delays diferentes para cada letra */
-.logo:hover .letter:nth-child(1) { animation-delay: 0s; }
-.logo:hover .letter:nth-child(2) { animation-delay: 0.1s; }
-.logo:hover .letter:nth-child(3) { animation-delay: 0.2s; }
-.logo:hover .letter:nth-child(4) { animation-delay: 0.3s; }
-.logo:hover .letter:nth-child(5) { animation-delay: 0.4s; }
-.logo:hover .letter:nth-child(6) { animation-delay: 0.5s; }
+.logo:hover .letter:nth-child(1) { animation-delay: 0.8s; }
+.logo:hover .letter:nth-child(2) { animation-delay: 0.5s; }
+.logo:hover .letter:nth-child(3) { animation-delay: 0.1s; }
+.logo:hover .letter:nth-child(4) { animation-delay: 0.6s; }
+.logo:hover .letter:nth-child(5) { animation-delay: 0.7s; }
+.logo:hover .letter:nth-child(6) { animation-delay: 0.0s; }
 
-/* Ajustes para telas menores que 768px (tablets e celulares) */
+/* Fim animação de "bounce" (saltar) */
+
+/* Ajustes para telas menores que 768px */
 @media (max-width: 768px) {
     /* Navbar */
     .navbar {
@@ -744,7 +761,9 @@ body.dark-theme .hero-btn:hover {
     }
 }
 
-/* Ajustes para telas menores que 480px (celulares pequenos) */
+/* Fim ajustes para telas menores que 768px */
+
+/* Ajustes para telas menores que 480px */
 @media (max-width: 480px) {
     /* Navbar */
     .navbar {
@@ -831,3 +850,4 @@ body.dark-theme .hero-btn:hover {
         height: 18px;
     }
 }
+/* Fim ajustes para telas menores que 480px */
