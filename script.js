@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // Para carregar elementos já visíveis
+    revealOnScroll();
 
     // Efeito de hover na logo
     const logo = document.querySelector(".logo");
@@ -90,11 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Cria o botão de fechar
             const closeButton = document.createElement("button");
             closeButton.classList.add("close-button");
-            closeButton.innerHTML = "×"; // Símbolo de "X"
+            closeButton.innerHTML = "×";
 
             // Adiciona o evento para fechar o vídeo
             closeButton.addEventListener("click", () => {
-                videoContainer.remove(); // Remove o vídeo da tela
+                videoContainer.remove();
             });
 
             // Adiciona o vídeo e o botão de fechar ao contêiner
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Adiciona o contêiner ao DOM
             button.parentElement.appendChild(videoContainer);
-            videoContainer.style.display = "block"; // Exibe o vídeo
+            videoContainer.style.display = "block";
         });
     });
 }); 
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener("scroll", revealContact);
-    revealContact(); // Para carregar elementos já visíveis
+    revealContact();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
