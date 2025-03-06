@@ -191,34 +191,70 @@ input:checked + .slider:before {
 }
 /* Container da imagem */
 .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     position: relative;
-}
-
-/* Estilo da imagem */
-.image-matteo {
-    width: 360px;
-    height: 360px;
-    object-fit: cover; /* Melhor que "fill" para manter a proporção */
-    border-radius: 50%; /* Deixa a imagem redonda */
+    width: 360px; /* Ajuste conforme necessário */
+    height: 360px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    border-radius: 50%; /* Mantém a imagem redonda */
     border: 6px solid #593d7f; /* Borda laranja */
     box-shadow: 0 0 30px rgba(58, 98, 139, 0.6), /* Sombra externa */
                 0 0 60px rgba(70, 41, 137, 0.4), /* Sombra mais difusa */
                 0 0 90px rgba(243, 156, 18, 0.2); /* Sombra mais leve */
     transition: transform 1.0s, box-shadow 1.6s;
-    position: relative;
     z-index: 1;
 }
 
-/* Efeito de hover na imagem */
-.image-matteo:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 40px rgba(243, 156, 18, 0.8),
-                0 0 80px rgba(243, 156, 18, 0.6),
-                0 0 120px rgba(243, 156, 18, 0.4);
+/* Estilo da imagem */
+.image-matteo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 60%; /* Mantém a imagem redonda */
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Efeito de quadro */
+.frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(98, 85, 85, 0.5); /* Fundo escuro para simular o quadro */
+    box-sizing: border-box;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease;
+    border-radius: 0%; /* Mantém o formato redondo */
+}
+
+/* Efeito ao passar o mouse */
+.image-container:hover .image-matteo {
+    transform: scale(1.1); /* Aumenta a imagem */
+    filter: sepia(1) brightness(0.6); /* Efeito de envelhecimento */
+}
+
+.image-container:hover .frame-overlay {
+    opacity: 1; /* Torna o quadro visível */
+}
+
+/* Animação de quadro */
+@keyframes frameAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.image-container:hover {
+    animation: frameAnimation 1.5s ease-in-out; /* Aplica a animação */
 }
 
 /* Efeito de brilho ao redor da imagem */
@@ -228,7 +264,7 @@ input:checked + .slider:before {
     width: 420px; /* Um pouco maior que a imagem */
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(243, 156, 18, 0.4), transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 10%);
     animation: pulse 10s infinite ease-in-out;
     z-index: 0;
 }
@@ -248,8 +284,6 @@ input:checked + .slider:before {
         opacity: 0.6;
     }
 }
-/* Fim animação de pulsação */
-
 /* Título e subtítulo */
 .hero-title {
     font-size: 2.5rem;
@@ -851,3 +885,61 @@ odo Escuro */
     }
 }
 /* Fim ajustes para telas menores que 480px */
+
+/* Estilos base */
+.image-container {
+    position: relative;
+    width: 300px; /* Ajuste conforme necessário */
+    height: 400px; /* Ajuste conforme necessário */
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.image-matteo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Efeito ao passar o mouse */
+.image-container:hover .image-matteo {
+    transform: scale(1.1);
+    filter: sepia(1) brightness(0.6);
+}
+
+.image-container:hover .frame-overlay {
+    opacity: 1;
+}
+
+/* Animação de quadro */
+@keyframes frameAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.image-container:hover {
+    animation: frameAnimation 1.5s ease-in-out;
+}
