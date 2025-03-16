@@ -7,7 +7,8 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-/*Corpo*/
+
+/* Corpo */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #ebebeb, #3b2d7e);
@@ -33,16 +34,16 @@ body {
 
 /* Logo */
 .logo {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 600;
     text-decoration: none;
     color: white;
-    transition: color 0.3s, letter-spacing 0.3s;
+    transition: color 0.9s, letter-spacing 0.5s;
 }
 
 .logo:hover {
     color: #f39c12;
-    letter-spacing: 2px;
+    letter-spacing: 19px;
 }
 
 /* Menu para dispositivos móveis */
@@ -119,7 +120,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #3f284e;
     transition: 0.4s;
     border-radius: 20px;
 }
@@ -137,7 +138,7 @@ body {
 }
 
 input:checked + .slider {
-    background-color: #f39c12;
+    background-color: #77620d;
 }
 
 input:checked + .slider:before {
@@ -191,70 +192,34 @@ input:checked + .slider:before {
 }
 /* Container da imagem */
 .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     position: relative;
-    width: 360px; /* Ajuste conforme necessário */
-    height: 360px; /* Ajuste conforme necessário */
-    overflow: hidden;
-    border-radius: 50%; /* Mantém a imagem redonda */
-    border: 6px solid #593d7f; /* Borda laranja */
-    box-shadow: 0 0 30px rgba(58, 98, 139, 0.6), /* Sombra externa */
-                0 0 60px rgba(70, 41, 137, 0.4), /* Sombra mais difusa */
-                0 0 90px rgba(243, 156, 18, 0.2); /* Sombra mais leve */
-    transition: transform 1.0s, box-shadow 1.6s;
-    z-index: 1;
 }
 
 /* Estilo da imagem */
 .image-matteo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Mantém a proporção da imagem */
-    border-radius: 60%; /* Mantém a imagem redonda */
-    transition: transform 0.5s ease, filter 0.5s ease;
+    width: 360px;
+    height: 360px;
+    object-fit: cover; 
+    border-radius: 50%; 
+    border: 6px solid #593d7f; /* Borda laranja */
+    box-shadow: 0 0 30px rgba(58, 98, 139, 0.6),
+                0 0 60px rgba(70, 41, 137, 0.4),
+                0 0 90px rgba(243, 156, 18, 0.2);
+    transition: transform 1.0s, box-shadow 1.6s;
+    position: relative;
+    z-index: 1;
 }
 
-/* Efeito de quadro */
-.frame-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(98, 85, 85, 0.5); /* Fundo escuro para simular o quadro */
-    box-sizing: border-box;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.5s ease;
-    border-radius: 0%; /* Mantém o formato redondo */
-}
-
-/* Efeito ao passar o mouse */
-.image-container:hover .image-matteo {
-    transform: scale(1.1); /* Aumenta a imagem */
-    filter: sepia(1) brightness(0.6); /* Efeito de envelhecimento */
-}
-
-.image-container:hover .frame-overlay {
-    opacity: 1; /* Torna o quadro visível */
-}
-
-/* Animação de quadro */
-@keyframes frameAnimation {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-}
-
-.image-container:hover {
-    animation: frameAnimation 1.5s ease-in-out; /* Aplica a animação */
+/* Efeito de hover na imagem */
+.image-matteo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(243, 156, 18, 0.8),
+                0 0 80px rgba(243, 156, 18, 0.6),
+                0 0 120px rgba(243, 156, 18, 0.4);
 }
 
 /* Efeito de brilho ao redor da imagem */
@@ -264,7 +229,7 @@ input:checked + .slider:before {
     width: 420px; /* Um pouco maior que a imagem */
     height: 420px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 10%);
+    background: radial-gradient(circle, rgba(243, 156, 18, 0.4), transparent 70%);
     animation: pulse 10s infinite ease-in-out;
     z-index: 0;
 }
@@ -284,6 +249,8 @@ input:checked + .slider:before {
         opacity: 0.6;
     }
 }
+/* Fim animação de pulsação */
+
 /* Título e subtítulo */
 .hero-title {
     font-size: 2.5rem;
@@ -585,8 +552,7 @@ body.dark-theme .hero-btn:hover {
     background: #e67e22;
 }
 
-/* Fim m
-odo Escuro */
+/* Fim modo Escuro */
 /* Estilo do botão de preview */
 .preview-button {
     padding: 8px 16px; /* Reduzi o padding para diminuir o tamanho da borda */
@@ -654,9 +620,25 @@ odo Escuro */
 
 /* Efeito de hover nas letras */
 .logo:hover .letter {
-    animation: bounce 0.5s ease;
+    animation: bounce 1s ease; /* Duração reduzida de 0.5s para 0.3s */
     color: #f39c12; /* Cor laranja ao passar o mouse */
 }
+
+/* Animação de "bounce" (saltar) */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(1); /* Sem movimento */
+    }
+
+    }
+
+/* Adicionando delays diferentes para cada letra */
+.logo:hover .letter:nth-child(1) { animation-delay: 7s; }
+.logo:hover .letter:nth-child(2) { animation-delay: 5s; }
+.logo:hover .letter:nth-child(3) { animation-delay: 8s; }
+.logo:hover .letter:nth-child(4) { animation-delay: 7s; }
+.logo:hover .letter:nth-child(5) { animation-delay: 3s; }
+.logo:hover .letter:nth-child(6) { animation-delay: 9s; }
 /* Fim efeito de hover nas letras */
 
 /* Animação de "bounce" (saltar) */
@@ -886,60 +868,28 @@ odo Escuro */
 }
 /* Fim ajustes para telas menores que 480px */
 
-/* Estilos base */
-.image-container {
-    position: relative;
-    width: 300px; /* Ajuste conforme necessário */
-    height: 400px; /* Ajuste conforme necessário */
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+/* Estilo do Botão de Voltar ao Topo */
+#back-to-top {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #f39c12; /* Cor laranja */
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    width: 75px;
+    height: 75px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.image-matteo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-.frame-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-/* Efeito ao passar o mouse */
-.image-container:hover .image-matteo {
-    transform: scale(1.1);
-    filter: sepia(1) brightness(0.6);
-}
-
-.image-container:hover .frame-overlay {
-    opacity: 1;
-}
-
-/* Animação de quadro */
-@keyframes frameAnimation {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-}
-
-.image-container:hover {
-    animation: frameAnimation 1.5s ease-in-out;
+#back-to-top:hover {
+    background-color: #e67e22; /* Cor laranja mais escura no hover */
+    transform: scale(1.1); /* Efeito de escala ao passar o mouse */
 }
