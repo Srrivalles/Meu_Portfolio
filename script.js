@@ -106,23 +106,23 @@ document.addEventListener("DOMContentLoaded", () => {
             videoContainer.style.display = "block";
         });
     });
-}); 
-document.addEventListener("DOMContentLoaded", () => {
-    // Animação de revelação na seção de contato
-    const contactSection = document.querySelector("#contact");
 
-    const revealContact = () => {
-        const contactTop = contactSection.getBoundingClientRect().top;
-        if (contactTop < window.innerHeight * 0.8) {
-            contactSection.classList.add("visible");
+    // Botão de Voltar ao Topo
+    const backToTopButton = document.getElementById("back-to-top");
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
         }
     };
 
-    window.addEventListener("scroll", revealContact);
-    revealContact();
-});
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-document.addEventListener("DOMContentLoaded", () => {
+    // Menu mobile
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinksContainer = document.querySelector(".nav-links-container");
 
@@ -138,26 +138,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-// Script para o menu mobile
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinksContainer = document.querySelector('.nav-links-container');
 
-    menuToggle.addEventListener('click', function() {
-        navLinksContainer.classList.toggle('active');
-    });
-});
+// Mostrar/Ocultar Botão de Voltar ao Topo
+window.onscroll = function() {
+    const backToTopButton = document.getElementById("back-to-top");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
 
-document.querySelector('.image-container').addEventListener('mousemove', (e) => {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left; // Coordenada X dentro do elemento
-    const y = e.clientY - rect.top;  // Coordenada Y dentro do elemento
-
-    const frameOverlay = e.target.querySelector('.frame-overlay');
-    frameOverlay.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.5))`;
-});
-
-document.querySelector('.image-container').addEventListener('mouseleave', (e) => {
-    const frameOverlay = e.target.querySelector('.frame-overlay');
-    frameOverlay.style.background = 'rgba(0, 0, 0, 0.5)';
+// Voltar ao Topo
+document.getElementById("back-to-top").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
