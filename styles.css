@@ -152,11 +152,11 @@ input:checked + .slider:before {
 /* Responsividade */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; /* Exibe o ícone do menu em telas menores */
+        display: block; 
     }
 
     .nav-links-container {
-        display: none; /* Oculta os links em telas menores */
+        display: none; 
         position: absolute;
         top: 70px;
         right: 20px;
@@ -167,7 +167,7 @@ input:checked + .slider:before {
     }
 
     .nav-links-container.active {
-        display: block; /* Exibe os links quando o menu está ativo */
+        display: block; 
     }
 
     .nav-links {
@@ -218,7 +218,7 @@ input:checked + .slider:before {
     height: 360px;
     object-fit: cover; 
     border-radius: 50%; 
-    border: 6px solid #593d7f; /* Borda laranja */
+    border: 6px solid #593d7f; 
     box-shadow: 0 0 30px rgba(58, 98, 139, 0.6),
                 0 0 60px rgba(70, 41, 137, 0.4),
                 0 0 90px rgba(243, 156, 18, 0.2);
@@ -314,7 +314,7 @@ input:checked + .slider:before {
 .section {
     padding: 60px 15%;
     text-align: center;
-    background: linear-gradient(to right, #2b1f72, #412a41); /* Gradiente similar */
+    background: linear-gradient(to right, #2b1f72, #412a41); 
     color: white;
     opacity: 0;
     transform: translateY(50px);
@@ -556,14 +556,14 @@ body.dark-theme .hero-btn:hover {
 /* Fim modo Escuro */
 /* Estilo do botão de preview */
 .preview-button {
-    padding: 8px 16px; /* Reduzi o padding para diminuir o tamanho da borda */
+    padding: 8px 16px; 
     background: #f39c12;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 14px; /* Ajuste o tamanho da fonte, se necessário */
+    font-size: 14px; 
 }
 
 .preview-button:hover {
@@ -573,8 +573,8 @@ body.dark-theme .hero-btn:hover {
 
 /* Estilo do contêiner do vídeo */
 .video-container {
-    display: none; /* Inicialmente oculto */
-    position: relative; /* Para posicionar o botão de fechar */
+    display: none; 
+    position: relative;
     margin-top: 20px;
     border-radius: 10px;
     overflow: hidden;
@@ -621,14 +621,14 @@ body.dark-theme .hero-btn:hover {
 
 /* Efeito de hover nas letras */
 .logo:hover .letter {
-    animation: bounce 1s ease; /* Duração reduzida de 0.5s para 0.3s */
-    color: #f39c12; /* Cor laranja ao passar o mouse */
+    animation: bounce 1s ease; 
+    color: #f39c12; 
 }
 
 /* Animação de "bounce" (saltar) */
 @keyframes bounce {
     0%, 100% {
-        transform: translateY(1); /* Sem movimento */
+        transform: translateY(1); 
     }
 
     }
@@ -674,11 +674,11 @@ body.dark-theme .hero-btn:hover {
     }
 
     .menu-toggle {
-        display: block; /* Exibe o ícone do menu */
+        display: block; 
     }
 
     .nav-links-container {
-        display: none; /* Oculta os links de navegação */
+        display: none; 
         position: absolute;
         top: 60px;
         right: 20px;
@@ -689,7 +689,7 @@ body.dark-theme .hero-btn:hover {
     }
 
     .nav-links-container.active {
-        display: block; /* Exibe os links quando o menu está ativo */
+        display: block;
     }
 
     .nav-links {
@@ -871,14 +871,14 @@ body.dark-theme .hero-btn:hover {
 
 /* Estilo do Botão de Voltar ao Topo */
 #back-to-top {
-    display: none; /* Inicialmente oculto */
+    display: none; 
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #f39c12; /* Cor laranja */
+    background-color: #f39c12;
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -891,6 +891,6 @@ body.dark-theme .hero-btn:hover {
 }
 
 #back-to-top:hover {
-    background-color: #e67e22; /* Cor laranja mais escura no hover */
-    transform: scale(1.1); /* Efeito de escala ao passar o mouse */
+    background-color: #e67e22; 
+    transform: scale(1.1);
 }
