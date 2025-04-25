@@ -1,20 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Modo escuro/claro
-    const themeToggle = document.getElementById("theme-toggle");
-    const body = document.body;
-
-    themeToggle.addEventListener("change", () => {
-        body.classList.toggle("dark-theme");
-        localStorage.setItem("theme", body.classList.contains("dark-theme") ? "dark" : "light");
-    });
-
-    // Mantém a preferência do usuário
-    if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-theme");
-        themeToggle.checked = true;
-    }
-
-    // Efeito de rolagem animada
+    // Animação de seções aparecendo
     const sections = document.querySelectorAll(".section");
 
     const revealOnScroll = () => {
@@ -29,88 +14,155 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
 
-    // Efeito de hover na logo
+    // Hover animado nas letras do logo
     const logo = document.querySelector(".logo");
+    const letters = document.querySelectorAll(".logo .letter");
+
     logo.addEventListener("mouseenter", () => {
-        logo.style.letterSpacing = "5px";
+        letters.forEach((letter, index) => {
+            letter.style.transition = `transform 0.3s ease-in-out ${index * 0.05}s`;
+            letter.style.transform = "translateY(-5px)";
+        });
     });
 
     logo.addEventListener("mouseleave", () => {
-        logo.style.letterSpacing = "normal";
+        letters.forEach((letter, index) => {
+            letter.style.transition = `transform 0.3s ease-in-out ${index * 0.05}s`;
+            letter.style.transform = "translateY(0)";
+        });
     });
 
-    // Animação de botão na página inicial
+    // Botão principal animado
     const heroBtn = document.querySelector(".hero-btn");
-
     heroBtn.addEventListener("mouseenter", () => {
         heroBtn.style.transform = "scale(1.1)";
     });
-
     heroBtn.addEventListener("mouseleave", () => {
         heroBtn.style.transform = "scale(1)";
     });
 
-    // Interatividade nos projetos
-    const projectItems = document.querySelectorAll(".project-item");
+    // Efeito tilt na imagem do Matteo
+    const imageMatteo = document.querySelector(".image-matteo");
+    if (imageMatteo) {
+        imageMatteo.addEventListener("mousemove", (e) => {
+            const rect = imageMatteo.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+            imageMatteo.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
 
+        imageMatteo.addEventListener("mouseleave", () => {
+            imageMatteo.style.transform = "rotateX(0) rotateY(0)";
+        });
+    }
+
+    // Animação hover nos cards de projeto
+    const projectItems = document.querySelectorAll(".project-item");
     projectItems.forEach((item) => {
         item.addEventListener("mouseenter", () => {
             item.style.transform = "translateY(-10px)";
             item.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.2)";
         });
-
         item.addEventListener("mouseleave", () => {
             item.style.transform = "translateY(0)";
             item.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
         });
     });
 
-    // Exibir vídeo ao clicar no botão de preview
-    const previewButtons = document.querySelectorAll(".preview-button");
+    // Tilt leve ao mover mouse nos cards
+    projectItems.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -2;
+            const rotateY = ((x - centerX) / centerX) * 2;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0) rotateY(0)";
+        });
+    });
 
-    previewButtons.forEach((button) => {
+    // Botões de preview
+    const previewButtons = document.querySelectorAll(".preview-button");
+    previewButtons.forEach(button => {
         button.addEventListener("click", () => {
             const videoSrc = button.getAttribute("data-video");
-
-            // Remove qualquer vídeo existente antes de adicionar um novo
             const existingVideo = button.parentElement.querySelector(".video-container");
-            if (existingVideo) {
-                existingVideo.remove();
-            }
+            if (existingVideo) existingVideo.remove();
 
-            // Cria o contêiner do vídeo
             const videoContainer = document.createElement("div");
             videoContainer.classList.add("video-container");
 
-            // Cria o elemento de vídeo
             const videoElement = document.createElement("video");
             videoElement.setAttribute("controls", true);
             videoElement.innerHTML = `<source src="${videoSrc}" type="video/mp4">Seu navegador não suporta o vídeo.`;
 
-            // Cria o botão de fechar
             const closeButton = document.createElement("button");
             closeButton.classList.add("close-button");
             closeButton.innerHTML = "×";
-
-            // Adiciona o evento para fechar o vídeo
             closeButton.addEventListener("click", () => {
                 videoContainer.remove();
             });
 
-            // Adiciona o vídeo e o botão de fechar ao contêiner
             videoContainer.appendChild(videoElement);
             videoContainer.appendChild(closeButton);
-
-            // Adiciona o contêiner ao DOM
             button.parentElement.appendChild(videoContainer);
             videoContainer.style.display = "block";
         });
+
+        // Bounce ao clicar
+        button.addEventListener("mousedown", () => {
+            button.style.transform = "scale(0.95)";
+        });
+        button.addEventListener("mouseup", () => {
+            button.style.transform = "scale(1)";
+        });
     });
 
-    // Botão de Voltar ao Topo
+    // Scroll suave e destaque nos links
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href");
+            const target = document.querySelector(targetId);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: "smooth"
+                });
+                link.classList.add("active-highlight");
+                setTimeout(() => link.classList.remove("active-highlight"), 800);
+            }
+        });
+    });
+
+    // Animação de fade-in nos títulos das seções
+    document.querySelectorAll(".section h1").forEach((title, index) => {
+        title.style.opacity = 0;
+        title.style.transition = "opacity 1s ease";
+        setTimeout(() => {
+            title.style.opacity = 1;
+        }, index * 400);
+    });
+
+    // Fade do body ao carregar
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+
+    // Botão voltar ao topo
     const backToTopButton = document.getElementById("back-to-top");
 
-    window.onscroll = function() {
+    window.onscroll = function () {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             backToTopButton.style.display = "block";
         } else {
@@ -121,26 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
     backToTopButton.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    // Menu mobile
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinksContainer = document.querySelector(".nav-links-container");
-
-    menuToggle.addEventListener("click", () => {
-        navLinksContainer.classList.toggle("active");
-    });
-
-    // Fechar o menu ao clicar em um link
-    const navLinks = document.querySelectorAll(".nav-link");
-    navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            navLinksContainer.classList.remove("active");
-        });
-    });
 });
 
-// Mostrar/Ocultar Botão de Voltar ao Topo
-window.onscroll = function() {
+// Scroll suave para fallback
+window.onscroll = function () {
     const backToTopButton = document.getElementById("back-to-top");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         backToTopButton.style.display = "block";
@@ -149,7 +185,6 @@ window.onscroll = function() {
     }
 };
 
-// Voltar ao Topo
-document.getElementById("back-to-top").addEventListener("click", function() {
+document.getElementById("back-to-top").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
