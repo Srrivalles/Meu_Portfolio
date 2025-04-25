@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ebebeb, #3b2d7e);
+    background: linear-gradient(to right, #ebebeb, #6b7110);
     color: hwb(0 20% 80%);
     margin: 0;
     padding: 0;
@@ -13,55 +13,109 @@ body {
 /* Corpo */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ebebeb, #3b2d7e);
+    background: linear-gradient(to right, #ebebeb, #6b7110);
     color: hwb(0 20% 80%);
     margin: 0;
     padding: 0; 
 }
 
-/* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centraliza o conteúdo */
     align-items: center;
-    padding: 20px 50px;
+    padding: 10px 0;
     background: rgba(0, 0, 0, 0.9);
     color: white;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.6s;
+    transition: all 0.4s ease;
 }
 
+/* Conteúdo interno centralizado e controlado */
+.navbar-inner {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /* Logo */
 .logo {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 600;
     text-decoration: none;
     color: white;
-    transition: color 0.9s, letter-spacing 0.5s;
+    display: flex;
+    gap: 3px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+/* Animação elegante no hover */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #f39c12;
+    left: 0;
+    bottom: 0;
+    transition: width 0.4s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #f39c12;
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        display: none; /* Esconde no mobile inicialmente */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.95);
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Efeito ao rolar página */
+.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 10px 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
 }
 
 .logo:hover {
     color: #f39c12;
     letter-spacing: 19px;
-}
-
-/* Menu para dispositivos móveis */
-.menu-toggle {
-    display: none; /* Oculta em telas maiores */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.menu-toggle svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-    transition: fill 0.3s;
 }
 
 .menu-toggle:hover svg {
@@ -87,7 +141,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: 400;
     padding: 8px 12px;
     border-radius: 5px;
@@ -96,58 +150,9 @@ body {
 
 .nav-link:hover {
     background: rgba(176, 104, 36, 0.245);
-    color: #f39c12;
+    color: #ffffff;
     transform: translateY(-2px);
 }
-
-/* Botão de troca de tema */
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-    margin-left: 20px;
-}
-
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #3f284e;
-    transition: 0.4s;
-    border-radius: 20px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #77620d;
-}
-
-input:checked + .slider:before {
-    transform: translateX(20px);
-}
-
-/* Fim botão de troca de tema */
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -189,9 +194,37 @@ input:checked + .slider:before {
     height: 100vh;
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(to right, #d3ca50, #6b7110);
+    background: linear-gradient(to right, #163407, #768f7a);
     color: white;
 }
+.image-matteo,
+.section,
+.navbar {
+    will-change: transform, opacity, box-shadow;
+}
+
+/* Animação contínua na imagem do Matteo */
+.image-matteo {
+    animation: pulseGlow 1s step-end;
+}
+
+/* Keyframes da animação */
+@keyframes pulseGlow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+}
+
+
 /* Container da imagem */
 .image-container {
     display: flex;
@@ -208,7 +241,7 @@ input:checked + .slider:before {
     max-width: 100%;
     height: auto;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(243, 156, 18, 0.4), transparent 70%);
+    background: radial-gradient(circle, rgba(141, 94, 18, 0.4), transparent 70%);
     animation: pulse 10s infinite ease-in-out;
     z-index: 0;
 }
@@ -218,9 +251,9 @@ input:checked + .slider:before {
     height: 360px;
     object-fit: cover; 
     border-radius: 50%; 
-    border: 6px solid #593d7f; 
+    border: 6px solid #197300; 
     box-shadow: 0 0 30px rgba(58, 98, 139, 0.6),
-                0 0 60px rgba(70, 41, 137, 0.4),
+                0 0 60px rgba(0, 208, 255, 0.4),
                 0 0 90px rgba(243, 156, 18, 0.2);
     transition: transform 1.0s, box-shadow 1.6s;
     position: relative;
@@ -230,8 +263,8 @@ input:checked + .slider:before {
 /* Efeito de hover na imagem */
 .image-matteo:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 40px rgba(243, 156, 18, 0.8),
-                0 0 80px rgba(243, 156, 18, 0.6),
+    box-shadow: 0 0 40px rgba(50, 148, 122, 0.8),
+                0 0 80px rgba(2, 255, 221, 0.6),
                 0 0 120px rgba(243, 156, 18, 0.4);
 }
 
@@ -255,10 +288,33 @@ input:checked + .slider:before {
 
 /* Título e subtítulo */
 .hero-title {
-    font-size: 2.5rem;
-    margin: 20px 0;
-    animation: fadeIn 1.5s;
-    color: white;
+    animation: floatText 4s ease-in-out infinite, shineEffect 6s infinite;
+}
+
+/* Flutuar suavemente */
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Brilho constante no texto */
+@keyframes shineEffect {
+    0% {
+        color: #ffffff;
+        text-shadow: 0 0 5px #34b530, 0 0 10px #34b530;
+    }
+    50% {
+        color: #f39c12;
+        text-shadow: 0 0 15px #f39c12, 0 0 30px #f39c12;
+    }
+    100% {
+        color: #ffffff;
+        text-shadow: 0 0 5px #34b530, 0 0 10px #34b530;
+    }
 }
 
 .hero-subtitle {
@@ -314,7 +370,7 @@ input:checked + .slider:before {
 .section {
     padding: 60px 15%;
     text-align: center;
-    background: linear-gradient(to right, #425425, #6b7110); 
+    background: linear-gradient(to right, #163407, #768f7a); 
     color: white;
     opacity: 0;
     transform: translateY(50px);
@@ -364,7 +420,7 @@ h1 {
 }
 
 .skills-list li {
-    background: linear-gradient(135deg, #d3ca50, #6b7110);
+    background: linear-gradient(135deg, #33ba50, #b7bf41);
     color: #fff;
     padding: 12px 20px;
     border-radius: 8px;
@@ -410,11 +466,11 @@ h1 {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    background: #f39c12;
+    background: #34b530;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.6s;
 }
 
 .project-item a:hover {
@@ -521,43 +577,10 @@ h1 {
 
 /* Fim contato */
 
-/* Modo Escuro */
-body.dark-theme {
-    background: linear-gradient(to right, #0a0a0a, #2c2c2c);
-    color: #ffffff;
-}
-
-body.dark-theme .section {
-    background: linear-gradient(to right, #1a1a1a, #3a3a3a);
-    color: #ffffff;
-}
-
-body.dark-theme h1,
-body.dark-theme .content,
-body.dark-theme .skills-list li,
-body.dark-theme .project-item,
-body.dark-theme .contact-info a {
-    color: #ffffff;
-}
-
-body.dark-theme .navbar {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-body.dark-theme .hero-btn {
-    background: #f39c12;
-    color: #ffffff;
-}
-
-body.dark-theme .hero-btn:hover {
-    background: #e67e22;
-}
-
-/* Fim modo Escuro */
 /* Estilo do botão de preview */
 .preview-button {
     padding: 8px 16px; 
-    background: #f39c12;
+    background: #34b530;
     color: white;
     border: none;
     border-radius: 5px;
@@ -613,16 +636,32 @@ body.dark-theme .hero-btn:hover {
 /* Fim estilo do botão de fechar */
 
 /* Estilo das letras do nome */
+.logo {
+    transition: letter-spacing 0.3s ease-in-out;
+}
+
 .logo .letter {
     display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+
+    .logo:hover .letter:nth-child(odd) {
+        transform: rotate(5deg);
+    }
+    
+    .logo:hover .letter:nth-child(even) {
+        transform: rotate(-5deg);
+    }
+    
+    .logo .letter {
+        transform-origin: center bottom;
+    }
 }
 /* Fim estilo das letras do nome */
 
 /* Efeito de hover nas letras */
 .logo:hover .letter {
     animation: bounce 1s ease; 
-    color: #f39c12; 
+    color: #ff0033; 
 }
 
 /* Animação de "bounce" (saltar) */
@@ -873,24 +912,24 @@ body.dark-theme .hero-btn:hover {
 #back-to-top {
     display: none; 
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #f39c12;
-    color: white;
+    background-color: #c88313;
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    padding: 15px;
+    padding: 5px;
     border-radius: 50%;
     font-size: 24px;
-    width: 75px;
-    height: 75px;
+    width: 55px;
+    height: 55px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
 }
 
 #back-to-top:hover {
-    background-color: #e67e22; 
-    transform: scale(1.1);
+    background-color: #ac6327; 
+    transform: scale(1.3);
 }
