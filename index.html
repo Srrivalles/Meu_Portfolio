@@ -20,38 +20,27 @@
 <body>
     <!-- Navbar -->
     <header class="navbar">
-        <a href="index.html" class="logo">
-            <span class="letter">M</span>
-            <span class="letter">A</span>
-            <span class="letter">T</span>
-            <span class="letter">T</span>
-            <span class="letter">E</span>
-            <span class="letter">O</span>
-        </a>
-        
-        <!-- Menu para dispositivos móveis -->
-        <button class="menu-toggle" aria-label="Abrir menu">
-            <svg viewBox="0 0 24 24" width="24" height="24">
-                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
-            </svg>
-        </button>
-
-        <!-- Links de navegação -->
-        <nav class="nav-links-container">
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">Sobre mim</a></li>
-                <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                <li><a href="#projects" class="nav-link">Projetos</a></li>
-                <li><a href="#contact" class="nav-link">Contato</a></li>
-            </ul>
-        </nav>
-
-        <!-- Botão de troca de tema -->
-        <label class="theme-switch" for="theme-toggle">
-            <input type="checkbox" id="theme-toggle">
-            <span class="slider"></span>
-        </label>
-    </header>
+        <div class="navbar-inner">
+          <a href="index.html" class="logo">
+              <span class="letter">M</span>
+              <span class="letter">A</span>
+              <span class="letter">T</span>
+              <span class="letter">T</span>
+              <span class="letter">E</span>
+              <span class="letter">O</span>
+          </a>
+      
+          <nav class="nav-links-container">
+              <ul class="nav-links">
+                  <li><a href="#about" class="nav-link">Sobre mim</a></li>
+                  <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                  <li><a href="#projects" class="nav-link">Projetos</a></li>
+                  <li><a href="#contact" class="nav-link">Contato</a></li>
+              </ul>
+          </nav>
+        </div>
+      </header>
+      >
 
     <!-- Página Inicial -->
     <section class="function">
@@ -72,16 +61,21 @@
         <h1>Sobre mim</h1>
         <div class="content">
             <p>
-                E aí! Meu nome é Matteo, e sou apaixonado por tecnologia e desenvolvimento de software. 
-                Atualmente, estou cursando Análise e Desenvolvimento de Sistemas na UNIP e tenho experiência em 
-                HTML, CSS, JavaScript, Python e C.</p>
+                Olá! Me chamo Matteo Rivalles, sou desenvolvedor e analista de sistemas, apaixonado por tecnologia e inovação. 
+                Atualmente curso Análise e Desenvolvimento de Sistemas na UNIP, onde venho aprofundando meu conhecimento técnico e prático.
+            </p>
             <p>
-                Gosto de transformar ideias em soluções funcionais e estou sempre explorando novas tecnologias
-                para aprimorar meu conhecimento.
-                Curto desafios, adoro aprender coisas novas e acredito que compartilhar conhecimento
-                e trabalhar em equipe fazem toda a diferença no crescimento profissional.</p>
+                Tenho experiência no desenvolvimento de aplicações Web (HTML5, CSS3, JavaScript, Node.js, Next.js), sistemas desktop (C, Python, Java com Swing) e automações (CustomTkinter). 
+                Também atuo no desenvolvimento de jogos em 3D utilizando Unity e C#, implementando movimentação de personagens, sistemas de combate, armas, lanternas dinâmicas, inventário e integração com animações.
+            </p>
+            <p>
+                Entre meus projetos estão: sistemas de controle de estoque, automação de etiquetas, sites institucionais responsivos e um sistema de pré-matrícula universitária. 
+                Busco sempre transformar ideias em soluções práticas, combinando front-end, back-end e o desenvolvimento de experiências interativas em jogos.
+            </p>
+
         </div>
     </section>
+    
 
     <!-- Habilidades -->
     <section id="skills" class="section">
@@ -89,10 +83,11 @@
         <div class="skills-container">
             <ul class="skills-list">
                 <li>HTML5, CSS3 e JavaScript</li>
+                <li>Node.js, Next e Vite</li>
                 <li>Desenvolvimento Backend com Python</li>
-                <li>Desenvolvimento em C (DevC++)</li>
-                <li>Criação de Interfaces Gráficas com CustomTkinter</li>
-                <li>Versionamento de Código com Git e GitHub</li>
+                <li>Desenvolvimento em C e C#</li>
+                <li>Criação de Interfaces Gráficas em Java e Python</li>
+                <li>Blender e desenvolvimento em Unity</li>
             </ul>
         </div>
     </section>
@@ -191,12 +186,7 @@
             </ul>
         </div>
     </section>
-
-
-
-    <!-- Inclui o script JavaScript -->
     <script src="script.js"></script>
 </body>
-    <!-- Botão de Voltar ao Topo -->
     <button id="back-to-top" title="Voltar ao topo">&#8679;</button>
 </html>
