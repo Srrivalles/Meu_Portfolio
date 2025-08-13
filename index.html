@@ -1,192 +1,332 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Matteo | Portfolio</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matteo Rivalles | Desenvolvedor & Analista</title>
     
-        <!-- Meta tags para o WhatsApp, Facebook, Twitter, etc. -->
-        <meta property="og:title" content="Matteo Rivalles | Portfolio">
-        <meta property="og:description" content="Conheça meu trabalho! Sou Matteo, desenvolvedor web,
-        e aqui compartilho meus projetos e habilidades.">
-        <meta property="og:image" content="https://srrivalles.github.io/Meu_Portfolio/foto_matt.jpg">
-        <meta property="og:url" content="https://srrivalles.github.io/Meu_Portfolio/">
-        <meta property="og:type" content="website">
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta property="og:title" content="Matteo Rivalles | Desenvolvedor & Analista">
+    <meta property="og:description" content="Desenvolvedor Full Stack e Analista de Sistemas especializado em tecnologias modernas e soluções inovadoras.">
+    <meta property="og:image" content="https://srrivalles.github.io/Meu_Portfolio/foto_matt.jpg">
+    <meta property="og:url" content="https://srrivalles.github.io/Meu_Portfolio/">
+    <meta property="og:type" content="website">
     
-        <!-- Links para folhas de estilo -->
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    </head>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="navbar-inner">
-          <a href="index.html" class="logo">
-              <span class="letter">M</span>
-              <span class="letter">A</span>
-              <span class="letter">T</span>
-              <span class="letter">T</span>
-              <span class="letter">E</span>
-              <span class="letter">O</span>
-          </a>
-      
-          <nav class="nav-links-container">
-              <ul class="nav-links">
-                  <li><a href="#about" class="nav-link">Sobre mim</a></li>
-                  <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                  <li><a href="#projects" class="nav-link">Projetos</a></li>
-                  <li><a href="#contact" class="nav-link">Contato</a></li>
-              </ul>
-          </nav>
-        </div>
-      </header>
-      >
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
 
-    <!-- Página Inicial -->
-    <section class="function">
-        <div class="image-container">
-            <img src="./SG-IMG-MATTEO.png" alt="Foto do Matteo" class="image-matteo animated-image">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Matteo</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
         </div>
-        <div class="hero-content">
-            <h1 class="hero-title">Matteo Rivalles</h1>
-            <p class="hero-subtitle">Desenvolvedor e Analista de sistemas.</p>
-            <button onclick="window.location.href='#about'" class="hero-btn">Sobre Mim</button>
-            <a href="./Curriculo_Matteo.pdf" download class="cv-btn">Baixar Currículo</a>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="mobile-nav-close">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-nav-link">Início</a></li>
+            <li><a href="#about" class="mobile-nav-link">Sobre</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Habilidades</a></li>
+            <li><a href="#projects" class="mobile-nav-link">Projetos</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contato</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Matteo Rivalles</h1>
+                <p class="hero-subtitle">
+                    Desenvolvedor Full Stack & Analista de Sistemas apaixonado por criar soluções tecnológicas inovadoras e experiências digitais excepcionais.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                    <a href="./Curriculo_Matteo.pdf" download class="btn btn-secondary">Download CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./SG-IMG-MATTEO.png" alt="Matteo Rivalles" class="profile-image floating">
+            </div>
         </div>
     </section>
-    
 
-    <!-- Sobre Mim -->
+    <!-- About Section -->
     <section id="about" class="section">
-        <h1>Sobre mim</h1>
-        <div class="content">
-            <p>
-                Olá! Me chamo Matteo Rivalles, sou desenvolvedor e analista de sistemas, apaixonado por tecnologia e inovação. 
-                Atualmente curso Análise e Desenvolvimento de Sistemas na UNIP, onde venho aprofundando meu conhecimento técnico e prático.
-            </p>
-            <p>
-                Tenho experiência no desenvolvimento de aplicações Web (HTML5, CSS3, JavaScript, Node.js, Next.js), sistemas desktop (C, Python, Java com Swing) e automações (CustomTkinter). 
-                Também atuo no desenvolvimento de jogos em 3D utilizando Unity e C#, implementando movimentação de personagens, sistemas de combate, armas, lanternas dinâmicas, inventário e integração com animações.
-            </p>
-            <p>
-                Entre meus projetos estão: sistemas de controle de estoque, automação de etiquetas, sites institucionais responsivos e um sistema de pré-matrícula universitária. 
-                Busco sempre transformar ideias em soluções práticas, combinando front-end, back-end e o desenvolvimento de experiências interativas em jogos.
-            </p>
-
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-description">
+                    Conheça um pouco mais sobre minha jornada e experiência profissional
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text fade-in-up">
+                    <p>
+                        Olá! Sou Matteo Rivalles, desenvolvedor e analista de sistemas apaixonado por tecnologia e inovação. 
+                        Atualmente curso Análise e Desenvolvimento de Sistemas na UNIP, onde venho aprofundando meu conhecimento técnico e prático.
+                    </p>
+                    <p>
+                        Tenho experiência sólida no desenvolvimento de aplicações Web usando tecnologias modernas como HTML5, CSS3, JavaScript, Node.js e Next.js, 
+                        além de sistemas desktop em C, Python e Java. Também atuo no desenvolvimento de jogos 3D com Unity e C#.
+                    </p>
+                    <p>
+                        Minha paixão é transformar ideias em soluções práticas e funcionais, sempre buscando as melhores práticas de desenvolvimento 
+                        e mantendo-me atualizado com as tendências tecnológicas do mercado.
+                    </p>
+                </div>
+                <div class="about-stats fade-in-up">
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Projetos Concluídos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Tecnologias</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Dedicação</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    
 
-    <!-- Habilidades -->
+    <!-- Skills Section -->
     <section id="skills" class="section">
-        <h1>Habilidades</h1>
-        <div class="skills-container">
-            <ul class="skills-list">
-                <li>HTML5, CSS3 e JavaScript</li>
-                <li>Node.js, Next e Vite</li>
-                <li>Desenvolvimento Backend com Python</li>
-                <li>Desenvolvimento em C e C#</li>
-                <li>Criação de Interfaces Gráficas em Java e Python</li>
-                <li>Blender e desenvolvimento em Unity</li>
-            </ul>
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <p class="section-description">
+                    Tecnologias e ferramentas que domino para criar soluções completas
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in-up">
+                    <h3 class="skill-category-title">🌐 Frontend</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Vite</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in-up">
+                    <h3 class="skill-category-title">⚙️ Backend</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in-up">
+                    <h3 class="skill-category-title">🎮 Game Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Blender</span>
+                        <span class="skill-tag">Game Design</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in-up">
+                    <h3 class="skill-category-title">🛠️ Ferramentas</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">CustomTkinter</span>
+                        <span class="skill-tag">Java Swing</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Projetos -->
+    <!-- Projects Section -->
     <section id="projects" class="section">
-        <h1>Projetos</h1>
-        <div class="projects-container">
-            <div class="project-item">
-                <h2>Hortfruit</h2>
-                <p>
-                    O Hortfruit é um website desenvolvido com HTML, CSS e JavaScript para apresentar o hortifrúti,
-                    destacando sua estrutura, produtos e interação com os clientes.
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Projetos em Destaque</h2>
+                <p class="section-description">
+                    Alguns dos projetos que desenvolvi, demonstrando minhas habilidades e experiência
                 </p>
-                <div class="project-preview">
-                    <button class="preview-button" data-video="hortfruit-preview.mp4">Ver Preview</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in-up">
+                    <div class="project-image">🌱</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hortfruit</h3>
+                        <p class="project-description">
+                            Website responsivo desenvolvido para apresentar um hortifrúti, destacando produtos, 
+                            estrutura e interação com clientes. Criado com foco em usabilidade e design moderno.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://srrivalles.github.io/Site-para-hortfruit/index.html" target="_blank" class="project-link">
+                                Ver Demo 🔗
+                            </a>
+                            <button class="project-link secondary preview-btn" data-video="hortfruit-preview.mp4">
+                                Preview 📹
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://srrivalles.github.io/Site-para-hortfruit/index.html" target="_blank">Ver no GitHub</a>
-            </div>
-            <div class="project-item">
-                <h2>Site para Adega</h2>
-                <p>
-                    Este projeto consiste no desenvolvimento de um site responsivo para um restaurante sofisticado
-                    especializado em vinhos e alta gastronomia.
-                </p>
-                <div class="project-preview">
-                    <button class="preview-button" data-video="hortfruit-preview.mp4">Ver Preview</button>
+
+                <div class="project-card fade-in-up">
+                    <div class="project-image">🍷</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Site para Adega</h3>
+                        <p class="project-description">
+                            Site responsivo para restaurante sofisticado especializado em vinhos e alta gastronomia. 
+                            Design elegante com foco na experiência do usuário e apresentação premium.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://srrivalles.github.io/Site-de-Adega/" target="_blank" class="project-link">
+                                Ver Demo 🔗
+                            </a>
+                            <button class="project-link secondary preview-btn" data-video="adega-preview.mp4">
+                                Preview 📹
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://srrivalles.github.io/Site-de-Adega/" target="_blank">Ver no GitHub</a>
+
+                <div class="project-card fade-in-up">
+                    <div class="project-image">🏷️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automação de Etiquetas</h3>
+                        <p class="project-description">
+                            Sistema desenvolvido em Python para automatizar a criação de etiquetas em massa, 
+                            otimizando processos e aumentando a eficiência operacional.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Srrivalles/Automacao_Etiqueitas" target="_blank" class="project-link">
+                                Ver Código 🔗
+                            </a>
+                            <button class="project-link secondary preview-btn" data-video="automacao-etiquetas.mp4">
+                                Preview 📹
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in-up">
+                    <div class="project-image">💼</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema para Hortfruit</h3>
+                        <p class="project-description">
+                            Sistema completo desenvolvido para o setor hortifrúti com interface em HTML/CSS/JS e backend em C, 
+                            posteriormente integrado com interface gráfica em Python. Projeto acadêmico multidisciplinar (PIM).
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Srrivalles/Sistema-em-C-Hortfruit" target="_blank" class="project-link">
+                                Ver Código 🔗
+                            </a>
+                            <button class="project-link secondary preview-btn" data-video="sistema-hortfruit.mp4">
+                                Preview 📹
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="project-item">
-            <h2>Automação de Etiquetas</h2>
-            <p>
-                Este projeto foi desenvolvido para automatizar a criação de etiquetas,
-                facilitando a geração em massa com base em informações inseridas pelo usuário.
-                A solução foi implementada em Python, garantindo eficiência e praticidade no processo.</p>
-            <div class="project-preview">
-                <button class="preview-button" data-video="automacao-etiquetas.mp4">Ver Preview</button>
-            </div>
-            <a href="https://github.com/Srrivalles/Automacao_Etiqueitas" target="_blank">Ver no GitHub</a>
-        </div>
-    </div>
-    <div class="project-item">
-        <h2>Sistema para Hortfruit</h2>
-        <p>
-            O sistema foi desenvolvido com HTML, CSS e JavaScript para a interface, garantindo uma experiência
-            intuitiva e responsiva. No backend, a lógica foi inicialmente estruturada em C,
-            sendo posteriormente integrada a uma interface gráfica em Python (CustomTkinter) para ampliar a usabilidade.
-            <br>
-            <br>
-            Este projeto foi desenvolvido como parte do Projeto Integrado Multidisciplinar (PIM) da faculdade,
-            alinhando conceitos de desenvolvimento de software, logística e automação para oferecer uma solução
-            funcional e escalável para o setor hortifrúti.
-        </p>
-        <div class="project-preview">
-            <button class="preview-button" data-video="automacao-etiquetas.mp4">Ver Preview</button>
-        </div>
-        <a href="https://github.com/Srrivalles/Sistema-em-C-Hortfruit" target="_blank">Ver no GitHub</a>
-    </div>
-</div>
     </section>
 
-    <!-- Contato -->
+    <!-- Contact Section -->
     <section id="contact" class="section">
-        <h1>Contato</h1>
-        <div class="contact-container">
-            <p class="contact-description">
-                Gostou do que viu? Entre em contato comigo:
-            </p>
-            <ul class="contact-info">
-                <li>
-                    <a href="mailto:matteo@example.com" class="contact-link">
-                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        <span>Email: matheuslimaandrade2102@gmail.com</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/Srrivalles" target="_blank" class="contact-link">
-                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.342-3.369-1.342-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.032-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.026 2.747-1.026.547 1.376.203 2.394.1 2.646.642.698 1.03 1.591 1.03 2.682 0 3.842-2.337 4.687-4.565 4.93.359.309.678.919.678 1.852 0 1.335-.012 2.415-.012 2.741 0 .267.18.577.688.48C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                        </svg>
-                        <span>GitHub: Srrivalles</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/matheus-andrade-835761174/" target="_blank" class="contact-link">
-                        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/>
-                        </svg>
-                        <span>LinkedIn: Matteo Andrade</span>
-                    </a>
-                </li>
-            </ul>
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Vamos Conversar</h2>
+                <p class="section-description">
+                    Interessado em colaborar? Entre em contato comigo pelos canais abaixo
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in-up">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:matheuslimaandrade2102@gmail.com">matheuslimaandrade2102@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://www.linkedin.com/in/matheus-andrade-835761174/" target="_blank">Matteo Andrade</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🐙</div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <p><a href="https://github.com/Srrivalles" target="_blank">@Srrivalles</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in-up">
+                    <div style="background: var(--surface); padding: 2rem; border-radius: 1rem; box-shadow: var(--shadow-md); text-align: center;">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Disponível para Oportunidades</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                            Estou sempre aberto a discutir novos projetos, oportunidades de carreira e colaborações interessantes.
+                        </p>
+                        <a href="mailto:matheuslimaandrade2102@gmail.com" class="btn btn-primary">Enviar Mensagem</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Matteo Rivalles. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <!-- Video Modal -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="position: relative; max-width: 90%; max-height: 90%;">
+            <video id="modalVideo" controls style="width: 100%; height: auto; border-radius: 10px;">
+                <source src="" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <button id="closeModal" style="position: absolute; top: -40px; right: 0; background: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 18px; cursor: pointer; color: #000;">×</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
-    <button id="back-to-top" title="Voltar ao topo">&#8679;</button>
 </html>
