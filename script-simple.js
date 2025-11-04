@@ -1,0 +1,229 @@
+/**
+ * PORTFÓLIO MODERNO - JAVASCRIPT SIMPLIFICADO
+ * Tudo em um único arquivo, sem localStorage
+ */
+
+class Portfolio {
+  constructor() {
+    this.navbar = document.querySelector('.navbar');
+    this.menuToggle = document.querySelector('.menu-toggle');
+    this.navLinks = document.querySelector('.nav-links');
+    this.backToTop = document.getElementById('back-to-top');
+    
+    this.init();
+  }
+
+  init() {
+    this.setupNavbar();
+    this.setupMobileMenu();
+    this.setupBackToTop();
+    this.setupVideoModals();
+    this.setupSmoothScroll();
+  }
+
+  // === NAVBAR ===
+  setupNavbar() {
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      
+      // Adiciona classe quando rola
+      if (currentScroll > 50) {
+        this.navbar.classList.add('scrolled');
+      } else {
+        this.navbar.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
+  }
+
+  // === MENU MOBILE ===
+  setupMobileMenu() {
+    if (!this.menuToggle || !this.navLinks) return;
+    
+    this.menuToggle.addEventListener('click', () => {
+      this.navLinks.classList.toggle('active');
+    });
+    
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        this.navLinks.classList.remove('active');
+      });
+    });
+    
+    // Fecha o menu ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.navbar')) {
+        this.navLinks.classList.remove('active');
+      }
+    });
+  }
+
+  // === BACK TO TOP ===
+  setupBackToTop() {
+    if (!this.backToTop) return;
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        this.backToTop.classList.add('visible');
+      } else {
+        this.backToTop.classList.remove('visible');
+      }
+    });
+    
+    this.backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // === VIDEO MODALS ===
+  setupVideoModals() {
+    const previewButtons = document.querySelectorAll('.preview-button');
+    
+    previewButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const videoSrc = button.getAttribute('data-video');
+        this.openVideoModal(videoSrc);
+      });
+    });
+  }
+
+  openVideoModal(videoSrc) {
+    // Remove modal existente se houver
+    const existingModal = document.querySelector('.video-modal-overlay');
+    if (existingModal) existingModal.remove();
+    
+    // Cria o modal
+    const modal = document.createElement('div');
+    modal.className = 'video-modal-overlay';
+    modal.innerHTML = `
+      <div class="video-modal-content">
+        <video controls autoplay>
+          <source src="${videoSrc}" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
+        <button class="close-button" aria-label="Fechar">&times;</button>
+      </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Ativa o modal
+    setTimeout(() => modal.classList.add('active'), 10);
+    
+    // Bloqueia scroll
+    document.body.style.overflow = 'hidden';
+    
+    // Eventos de fechar
+    const closeBtn = modal.querySelector('.close-button');
+    
+    closeBtn.addEventListener('click', () => this.closeVideoModal(modal));
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) this.closeVideoModal(modal);
+    });
+    
+    // ESC para fechar
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        this.closeVideoModal(modal);
+        document.removeEventListener('keydown', handleEsc);
+      }
+    };
+    document.addEventListener('keydown', handleEsc);
+  }
+
+  closeVideoModal(modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    setTimeout(() => modal.remove(), 300);
+  }
+
+  // === SMOOTH SCROLL ===
+  setupSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Ignora links vazios
+        if (href === '#' || href === '#!') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+}
+
+// === SCROLL REVEAL (OPCIONAL) ===
+class ScrollReveal {
+  constructor() {
+    this.elements = document.querySelectorAll('.reveal');
+    this.init();
+  }
+
+  init() {
+    if (!this.elements.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    this.elements.forEach(el => observer.observe(el));
+  }
+}
+
+// === INICIALIZAÇÃO ===
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('🚀 Portfólio carregado!');
+  
+  new Portfolio();
+  new ScrollReveal();
+});
+
+// === PERFORMANCE ===
+// Preload de fontes críticas
+if ('fonts' in document) {
+  Promise.all([
+    document.fonts.load('700 1em Space Grotesk'),
+    document.fonts.load('400 1em Inter')
+  ]).then(() => {
+    document.body.classList.add('fonts-loaded');
+  });
+}
+
+// Lazy loading de imagens
+if ('loading' in HTMLImageElement.prototype) {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  images.forEach(img => {
+    img.src = img.dataset.src;
+  });
+} else {
+  // Fallback para navegadores que não suportam lazy loading
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+  document.body.appendChild(script);
+}
