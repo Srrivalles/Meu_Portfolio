@@ -82,6 +82,7 @@ class Portfolio {
     });
   }
 
+  
   // === VIDEO MODALS ===
   setupVideoModals() {
     const previewButtons = document.querySelectorAll('.preview-button');
@@ -195,6 +196,87 @@ class ScrollReveal {
     this.elements.forEach(el => observer.observe(el));
   }
 }
+  // === CARROSSEL DE IMAGENS ===
+class ImageCarousel {
+  constructor() {
+    this.carousels = document.querySelectorAll('.carousel-container');
+    this.intervals = new Map();
+    this.init();
+  }
+
+  init() {
+    this.carousels.forEach((carousel) => {
+      const images = carousel.querySelectorAll('.carousel-image');
+      const indicators = carousel.querySelectorAll('.indicator');
+      
+      if (images.length === 0) return;
+      
+      let currentIndex = 0;
+      let isHovering = false; // 👈 Controla se o mouse está em cima
+      
+      // Função para mudar de imagem
+      const changeImage = (newIndex) => {
+        images.forEach(img => img.classList.remove('active'));
+        indicators.forEach(ind => ind.classList.remove('active'));
+        
+        images[newIndex].classList.add('active');
+        indicators[newIndex].classList.add('active');
+        
+        currentIndex = newIndex;
+      };
+      
+      // Auto-rotate a cada 10 segundos
+      const intervalId = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % images.length;
+        changeImage(nextIndex);
+      }, 10000);
+      
+      this.intervals.set(carousel, intervalId);
+      
+      // Click nos indicadores
+      indicators.forEach((indicator, idx) => {
+        indicator.addEventListener('click', () => {
+          // Para o intervalo atual
+          clearInterval(this.intervals.get(carousel));
+          
+          // Muda para a imagem clicada
+          changeImage(idx);
+          
+          // Só cria novo intervalo se o mouse NÃO estiver em cima
+          if (!isHovering) {
+            const newInterval = setInterval(() => {
+              const nextIndex = (currentIndex + 1) % images.length;
+              changeImage(nextIndex);
+            }, 10000);
+            this.intervals.set(carousel, newInterval);
+          }
+        });
+      });
+      
+      // Pausa quando mouse está em cima
+      carousel.addEventListener('mouseenter', () => {
+        isHovering = true; // 👈 Marca que o mouse está em cima
+        clearInterval(this.intervals.get(carousel));
+      });
+      
+      // Retoma quando mouse sai
+      carousel.addEventListener('mouseleave', () => {
+        isHovering = false; // 👈 Marca que o mouse saiu
+        const newInterval = setInterval(() => {
+          const nextIndex = (currentIndex + 1) % images.length;
+          changeImage(nextIndex);
+        }, 10000);
+        this.intervals.set(carousel, newInterval);
+      });
+    });
+  }
+  
+  // Limpa todos os intervalos (útil para cleanup)
+  destroy() {
+    this.intervals.forEach(interval => clearInterval(interval));
+    this.intervals.clear();
+  }
+}
 
 // === INICIALIZAÇÃO ===
 document.addEventListener('DOMContentLoaded', () => {
@@ -202,6 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   new Portfolio();
   new ScrollReveal();
+  new ImageCarousel(); // 👈 Inicializa o carrossel
 });
 
 // === PERFORMANCE ===
