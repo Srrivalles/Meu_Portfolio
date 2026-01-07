@@ -9,7 +9,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Matteo Rivalles | Portfólio">
     <meta property="og:description" content="Desenvolvedor Full Stack especializado em aplicações web e jogos Unity.">
-    <meta property="og:image" content="https://srrivalles.github.io/Meu_Portfolio/foto_matt.jpg">
+    <meta property="og:image" content="https://srrivalles.github.io/Meu_Portfolio/foto_matt.jpeg">
     <meta property="og:url" content="https://srrivalles.github.io/Meu_Portfolio/">
     <meta property="og:type" content="website">
 
@@ -38,6 +38,11 @@
                     <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" fill="currentColor"/>
                 </svg>
             </button>
+
+            <label class="theme-switch" for="theme-toggle">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
         </div>
     </header>
 
@@ -45,11 +50,13 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Desenvolvedor Full Stack</h1>
+                <h1>Desenvolvedor</h1>
+                <h2>Front-End & Games</h2>
                 <p class="hero-subtitle">Matteo Rivalles</p>
                 <p class="hero-description">
-                    Transformo ideias em aplicações web funcionais e jogos interativos. 
-                    Especializado em desenvolvimento front-end, back-end e Unity 3D.
+                    Especialista em desenvolvimento front-end, programador em Java e C#, 
+                    criador de jogos interativos e conhecedor de bancos de dados. 
+                    Transformo ideias em experiências digitais envolventes.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
@@ -57,7 +64,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./SG-IMG-MATTEO.png" alt="Matteo Rivalles">
+                <img src="./SG-IMG-MATTEO.jpeg" alt="Matteo Rivalles">
             </div>
         </div>
     </section>
@@ -75,8 +82,9 @@
             <div class="about-card reveal">
                 <h3>💼 Experiência</h3>
                 <p>
-                    Desenvolvimento de sistemas web completos, desde landing pages responsivas 
-                    até aplicações desktop com Python e C. Experiência com automação de processos.
+                    Foco em desenvolvimento front-end com HTML, CSS e JavaScript, 
+                    programação em Java e C# para aplicações robustas, criação de jogos interativos 
+                    e trabalho com bancos de dados para soluções completas.
                 </p>
             </div>
 
@@ -107,9 +115,17 @@
             </p>
         </div>
 
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="jogos">Jogos</button>
+            <button class="filter-btn" data-filter="automacao">Automação</button>
+            <button class="filter-btn" data-filter="desktop">Desktop</button>
+        </div>
+
         <div class="bento-grid">
             <!-- Projeto 1: Hortfruit -->
-            <article class="project-card reveal">
+            <article class="project-card reveal" data-category="web">
                 <div class="project-preview">
                     <img src="Modelo_Hortfruit.png" alt="Preview Hortfruit">
                 </div>
@@ -125,6 +141,9 @@
                         <span class="tag">JavaScript</span>
                         <span class="tag">Responsive</span>
                     </div>
+                    <div class="project-details">
+                        <p>Detalhes técnicos: Utilizei HTML5 semântico para estrutura, CSS3 com Flexbox e Grid para layout responsivo, e JavaScript vanilla para interações simples como validação de formulários. Sem frameworks para manter o site leve e rápido.</p>
+                    </div>
                     <div class="project-links">
                         <button class="btn btn-primary preview-button" data-video="hortfruit-preview.mp4">
                             Ver Demo
@@ -138,7 +157,7 @@
             </article>
 
             <!-- Projeto 2: Adega -->
-            <article class="project-card reveal">
+            <article class="project-card reveal" data-category="web">
                 <div class="project-preview">
                     <img src="./Modelo_Adega.png" alt="Preview Adega">
                 </div>
@@ -154,6 +173,9 @@
                         <span class="tag">JavaScript</span>
                         <span class="tag">UI/UX</span>
                     </div>
+                    <div class="project-details">
+                        <p>Detalhes técnicos: Focado em UI/UX elegante com CSS3 avançado (gradientes, sombras), HTML5 para acessibilidade, e JavaScript para animações suaves. Inclui design responsivo com media queries para dispositivos móveis.</p>
+                    </div>
                     <div class="project-links">
                         <button class="btn btn-primary preview-button" data-video="adega-preview.mp4">
                             Ver Demo
@@ -167,7 +189,7 @@
             </article>
 
             <!-- Projeto 3: Automação -->
-            <article class="project-card reveal">
+            <article class="project-card reveal" data-category="automacao">
                 <div class="project-preview">
                     <img src="./Modelo_Teste.png" alt="Preview Automação">
                 </div>
@@ -183,6 +205,9 @@
                         <span class="tag">PIL</span>
                         <span class="tag">Excel</span>
                     </div>
+                    <div class="project-details">
+                        <p>Detalhes técnicos: Desenvolvido em Python puro com bibliotecas PIL para manipulação de imagens e openpyxl para leitura de Excel. Automatiza a criação de etiquetas personalizadas, integrando dados de planilhas para eficiência em processos empresariais.</p>
+                    </div>
                     <div class="project-links">
                         <button class="btn btn-primary preview-button" data-video="automacao-etiquetas.mp4">
                             Ver Demo
@@ -196,7 +221,7 @@
             </article>
 
             <!-- Projeto 4: Sistema -->
-            <article class="project-card reveal">
+            <article class="project-card reveal" data-category="desktop">
                 <div class="project-preview">
                     <img src="./Foto_Menu_Logistica.png" alt="Preview Sistema">
                 </div>
@@ -212,6 +237,9 @@
                         <span class="tag">CustomTkinter</span>
                         <span class="tag">Database</span>
                     </div>
+                    <div class="project-details">
+                        <p>Detalhes técnicos: Backend em C para operações de baixo nível e performance, integrado com Python via ctypes. Interface gráfica com CustomTkinter para UX moderna, incluindo operações CRUD em banco de dados simples.</p>
+                    </div>
                     <div class="project-links">
                         <button class="btn btn-primary preview-button" data-video="sistema-hortfruit.mp4">
                             Ver Demo
@@ -224,7 +252,7 @@
                 </div>
             </article>
             <!-- Projeto 5: Game Java -->
-<article class="project-card reveal">
+<article class="project-card reveal" data-category="jogos">
     <div class="project-preview carousel-container">
         <div class="carousel-images">
             <img src="./game-foto1.jpeg" alt="Game Screenshot 1" class="carousel-image active">
@@ -259,6 +287,9 @@
             <span class="tag">Game Development</span>
             <span class="tag">OOP</span>
             <span class="tag">2D Graphics</span>
+        </div>
+        <div class="project-details">
+            <p>Detalhes técnicos: Jogo 2D em Java usando Swing para gráficos, com foco em OOP (classes para Player, Enemies, etc.). Implementa colisões AABB, sprites animados e loop de jogo com Thread para 60 FPS.</p>
         </div>
         <div class="project-links">
             <button class="btn btn-primary preview-button" data-video="game-preview.mp4">
@@ -297,14 +328,14 @@
             </div>
 
             <div class="skill-card reveal">
-                <h3>Backend</h3>
+                <h3>Programação</h3>
                 <ul class="skill-list">
-                    <li>Node.js</li>
-                    <li>Python & Django</li>
-                    <li>C & C++</li>
-                    <li>Java & Spring</li>
-                    <li>SQL & Database Design</li>
-                    <li>RESTful APIs</li>
+                    <li>Java (OOP & Aplicações)</li>
+                    <li>C# (Unity & .NET)</li>
+                    <li>Python (Automação)</li>
+                    <li>C & C++ (Sistemas)</li>
+                    <li>SQL & Bancos de Dados</li>
+                    <li>Algoritmos & Estruturas</li>
                 </ul>
             </div>
 
