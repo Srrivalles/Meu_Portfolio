@@ -19,6 +19,9 @@ class Portfolio {
     this.setupBackToTop();
     this.setupVideoModals();
     this.setupSmoothScroll();
+    this.setupProjectFilter();
+    this.setupTypewriter();
+    this.setupThemeToggle();
   }
 
   // === NAVBAR ===
@@ -167,6 +170,73 @@ class Portfolio {
           });
         }
       });
+    });
+  }
+
+  // === FILTRO DE PROJETOS ===
+  setupProjectFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active de todos
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // === TYPEWRITER ANIMATION ===
+  setupTypewriter() {
+    const title = document.getElementById('typewriter-title');
+    if (!title) return;
+    
+    const text = title.textContent;
+    title.textContent = '';
+    let i = 0;
+    
+    const typeWriter = () => {
+      if (i < text.length) {
+        title.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100); // Velocidade de digitação
+      }
+    };
+    typeWriter();
+  }
+
+  // === THEME TOGGLE ===
+  setupThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    if (!themeToggle) return;
+    
+    // Verifica se há tema salvo no localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      themeToggle.checked = true;
+    }
+    
+    themeToggle.addEventListener('change', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      
+      if (isLight) {
+        localStorage.setItem('theme', 'light');
+      } else {
+        localStorage.setItem('theme', 'dark');
+      }
     });
   }
 }
